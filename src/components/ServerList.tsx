@@ -16,7 +16,7 @@ import { TbTrash } from 'react-icons/tb'
 
 export const ServerList: React.FC<{ servers: Server[] }> = ({ servers }) => {
 	return (
-		<Table className="mt-4">
+		<Table className="mt-4" aria-label="Servers">
 			<TableHeader>
 				<TableColumn>Hostname</TableColumn>
 				<TableColumn>Backend</TableColumn>

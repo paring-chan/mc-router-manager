@@ -4,8 +4,10 @@ import './globals.css'
 import React from 'react'
 import { Providers } from '@/app/Providers'
 import { Nav } from '@/components/Nav'
-import { Link, NavbarBrand } from '@nextui-org/react'
+import { Link } from '@nextui-org/react'
 import packageJSON from '../../package.json'
+
+import 'react-toastify/dist/ReactToastify.css'
 
 const inter = Inter({ subsets: ['latin'] })
 

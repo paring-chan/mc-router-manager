@@ -23,7 +23,7 @@ export const Nav: React.FC = () => {
 					<Button
 						isIconOnly
 						color="primary"
-						onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+						onPress={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
 					>
 						{theme === 'dark' ? <TbBrightnessDown /> : <TbMoon />}
 					</Button>
