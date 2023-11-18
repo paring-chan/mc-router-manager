@@ -1,95 +1,37 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import { Button } from '@nextui-org/react'
+import { Card, CardBody } from '@nextui-org/card'
+import { TbAlertCircle, TbPlus } from 'react-icons/tb'
+import { api } from '@/utils/api'
+import { objectToServers } from '@/utils/servers'
+import { ServerList } from '@/components/ServerList'
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+export default async function Home() {
+	const servers = await api.get('/routes').then((x) => objectToServers(x.data))
+	console.log(servers)
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+	return (
+		<>
+			<div className="flex justify-end items-center">
+				<div className="flex-grow font-bold text-xl">Servers</div>
+				<Button color="primary" startContent={<TbPlus />}>
+					Add
+				</Button>
+			</div>
+			{servers.length == 0 ? (
+				<Card className="mt-4">
+					<CardBody>
+						<div className="flex flex-col items-center py-8">
+							<TbAlertCircle className="text-4xl text-blue-500" />
+							<p className="mt-4 text-2xl">
+								{' '}
+								There{"'"}s no servers registered.
+							</p>
+						</div>
+					</CardBody>
+				</Card>
+			) : (
+				<ServerList servers={servers} />
+			)}
+		</>
+	)
 }
