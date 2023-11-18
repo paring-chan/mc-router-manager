@@ -1,6 +1,6 @@
 # MC Router Manager
 
-Management web ui forr [mc-router](https://github.com/itzg/mc-router)
+Management web ui for [mc-router](https://github.com/itzg/mc-router)
 
 ## Installation
 
