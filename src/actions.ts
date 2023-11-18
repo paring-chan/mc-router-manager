@@ -9,4 +9,6 @@ export async function addServer(host: string, backend: string) {
 	})
 }
 
-export async function removeServer() {}
+export async function removeServer(host: string) {
+	await api.delete(`/routes/${encodeURIComponent(host)}`)
+}

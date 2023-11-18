@@ -44,7 +44,6 @@ export const ServerCreateButton: React.FC = () => {
 								try {
 									setProcessing(true)
 									await addServer(host, backend)
-									toast.success('Server added!')
 									router.refresh()
 									onClose()
 
