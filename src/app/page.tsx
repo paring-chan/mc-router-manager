@@ -5,6 +5,7 @@ import { api } from '@/utils/api'
 import { objectToServers } from '@/utils/servers'
 import { ServerList } from '@/components/ServerList'
 import { ServerCreateButton } from '@/components/ServerCreateButton'
+import { DefaultServerEdit } from '@/components/DefaultServerEdit'
 
 export const dynamic = 'force-dynamic'
 
@@ -32,6 +33,7 @@ export default async function Home() {
 			) : (
 				<ServerList servers={servers} />
 			)}
+			<DefaultServerEdit />
 		</>
 	)
 }

@@ -9,6 +9,12 @@ export async function addServer(host: string, backend: string) {
 	})
 }
 
+export async function setDefaultServer(backend: string) {
+	await api.post('/defaultRoute', {
+		backend,
+	})
+}
+
 export async function removeServer(host: string) {
 	await api.delete(`/routes/${encodeURIComponent(host)}`)
 }

@@ -27,8 +27,8 @@ export default function RootLayout({
 				<Providers>
 					<Nav />
 					<main className="mx-auto max-w-[1024px] px-6 mt-4">{children}</main>
-					<footer className="mx-auto max-w-[1024px] px-6 my-4 flex justify-between">
-						<div className="text-gray-500 font-light">
+					<footer className="mx-auto max-w-[1024px] px-6 my-4 flex">
+						<div className="text-gray-500 font-light flex-grow w-0">
 							Based on{' '}
 							<Link
 								target="_blank"
@@ -38,10 +38,10 @@ export default function RootLayout({
 								mc-router
 							</Link>
 						</div>
-						<div className="text-gray-500 font-light">
+						<div className="text-gray-500 font-light flex-grow w-0 text-center">
 							v{packageJSON.version}
 						</div>
-						<div className="text-gray-500 font-light">
+						<div className="text-gray-500 font-light flex-grow w-0 text-right">
 							Made by{' '}
 							<Link
 								target="_blank"
