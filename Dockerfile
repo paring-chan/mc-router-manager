@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM node:20-alpine AS builder
+FROM --platform=$BUILDPLATFORM node:21-alpine AS builder
 
 WORKDIR /app
 COPY package.json pnpm-lock.yaml .npmrc ./
@@ -11,7 +11,7 @@ COPY . .
 RUN pnpm pack && \
     mv mc-router-manager-*.tgz pack.tgz
 
-FROM node:20-alpine AS runner
+FROM node:21-alpine AS runner
 
 COPY --from=builder /app/pack.tgz .
 
