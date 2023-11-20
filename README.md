@@ -2,6 +2,8 @@
 
 Management web ui for [mc-router](https://github.com/itzg/mc-router)
 
+![thumbnail.png](docs/thumbnail.png)
+
 ## Installation
 
 You can use docker image: `pikokr/mc-router-manager`
