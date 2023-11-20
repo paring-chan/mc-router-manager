@@ -21,7 +21,7 @@ export default async function Home() {
 			{servers.length == 0 ? (
 				<Card className="mt-4">
 					<CardBody>
-						<div className="flex flex-col items-center py-8">
+						<div className="flex flex-col items-center py-36">
 							<TbAlertCircle className="text-4xl text-blue-500" />
 							<p className="mt-4 text-2xl">
 								{' '}
