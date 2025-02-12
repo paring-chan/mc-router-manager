@@ -10,7 +10,7 @@
 		"prepack": "pnpm build"
 	},
 	"dependencies": {
-		"next": "14.0.3"
+		"next": "14.2.24"
 	},
 	"devDependencies": {
 		"react": "^18.2.0",
@@ -23,7 +23,7 @@
 		"autoprefixer": "^10.4.16",
 		"axios": "^1.6.2",
 		"eslint": "^8.54.0",
-		"eslint-config-next": "14.0.3",
+		"eslint-config-next": "14.2.24",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-prettier": "^5.0.1",
 		"next-themes": "^0.2.1",
